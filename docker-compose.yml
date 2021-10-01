@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+    aws_batch:
+      image: aws_batch:dev
+      container_name: aws_batch
+      hostname: aws_batch
+      build: .
+      restart: always
+      tty: true
