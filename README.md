@@ -41,6 +41,26 @@
 ## プログラム
 - config.sh  
 	init.sh, run.sh の共通の設定ファイル  
+	- 単体で実行、もしくは、固定値で実行する場合  
+		```
+		# リージョン
+		AWS_REGION="ap-northeast-1"  
+		# S3バケット名
+		AWS_BATCH_BACKET="S3のバケット名"  
+		#  ECR - アカウントID
+		AWS_ECR_AID="ECRのアカウントID"
+		# ECR - レポジトリ名
+		AWS_ECR_REP="ECRのレポジトリ名"  
+		```
+	- AWS Batch の環境変数で設定する場合  
+		以下を設定すると、上記の設定を上書きしてスクリプトが動作する  
+		`マネージメントコンソール > AWS Batch > ジョブ定義 > コンテナのプロパティ > 環境変数` 
+		|名前|値|
+		|---|---|
+		|CONFIG_AWS_REGION|ap-northeast-1|
+		|CONFIG_AWS_BACKET|S3のバケット名|
+		|CONFIG_AWS_ECR_AID|ECRのアカウントID|
+		|CONFIG_AWS_ECR_REP|ECRのレポジトリ名|
 
 - init.sh  
 	`./data.src/*.dat` を圧縮し、S3バケットの[data]フォルダーへデータをアップロード  
@@ -63,7 +83,7 @@
 	docker-compose により、コンテナを作成後、起動  
 	（既にコンテナが起動している場合は、停止してから作成）
 
-- docker_build_exec_run.sh
+- docker_build_exec_run.sh  
 	docker-compose により、コンテナを作成後、起動、コンテナ内の[run.sh]を実行  
 	（既にコンテナが起動している場合は、停止してから作成）
 
