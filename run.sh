@@ -2,6 +2,18 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${DIR}/config.sh
 
+echo "ver:${VERSION}"
+
+# 環境変数引数2
+if [ ! -d ${PARAM1} ]; then
+  echo "・環境変数引数1[${PARAM1}]"
+fi
+
+# 環境変数引数2
+if [ ! -d ${PARAM2} ]; then
+  echo "・環境変数引数2[${PARAM2}]"
+fi
+
 # フォルダ作成
 if [ ! -d ${DATA_DIR} ]; then
   echo "・処理用入力データフォルダー作成[${DATA_DIR}]"
