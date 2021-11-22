@@ -40,17 +40,24 @@
 
 ## プログラム
 - config.sh  
-	init.sh, run.sh の共通の設定ファイル  
+	init.sh, run.sh, docker_exec*.sh, job.sh の共通の設定ファイル  
 	- 単体で実行、もしくは、固定値で実行する場合  
 		```
 		# リージョン
-		AWS_REGION="ap-northeast-1"  
+		AWS_REGION="ap-northeast-1"
 		# S3バケット名
-		AWS_BATCH_BACKET="S3のバケット名"  
+		AWS_BATCH_BACKET="S3のバケット名" 
 		#  ECR - アカウントID
 		AWS_ECR_AID="ECRのアカウントID"
 		# ECR - レポジトリ名
-		AWS_ECR_REP="ECRのレポジトリ名"  
+		AWS_ECR_REP="ECRのレポジトリ名"
+
+		# ジョブ定義
+		JOB_DEFINITION="AWS Batch のジョブ定義名"
+		# ジョブ定義：バージョン(バージョンがない場合、省略可)
+		JOB_DEFINITION_VERSION="AWS Batch のジョブ定義のバージョン"
+		# ジョブキュー
+		JOB_QUEUE="AWS Batch のジョブキュー名"
 		```
 	- AWS Batch の環境変数で設定する場合  
 		以下を設定すると、上記の設定を上書きしてスクリプトが動作する  
@@ -132,6 +139,12 @@
   
 - ３．AWS Elastic Container Registry (ECR) へコンテナイメージを登録  
 	- ecr.sh  
+
+- ４．AWS Batch を設定  
+  
+- ５．AWS CLI でJOB投入  
+	- job.sh  
+		+ job_common.sh  
   
 ## AWS Batch を設定する
 - １．[コンピューティング環境]を作成  
@@ -153,9 +166,6 @@ AWS Batch の設定ポイント
 	- その他の設定  
 		- ジョブロール  
 			[`batch-policy`]を選択  
-
-## VPCエンドポイント（PrivateLink）を利用する場合  
-`TODO`  
 
 ## ログ
 - CloudWatch

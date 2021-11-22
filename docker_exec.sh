@@ -1,3 +1,5 @@
 #!/bin/bash
-docker exec -it aws_batch /bin/bash
-/usr/local/aws.batch/run.sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source ${DIR}/config.sh
+
+docker exec -it ${DOCKER_CONTAINER_NAME} /bin/bash
