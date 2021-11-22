@@ -81,7 +81,7 @@ DOCKER_CONTAINER_NAME="aws_batch_dev"
 # ・関連するプログラム
 #   - job_common.sh
 JOB_DEFINITION=""
-# ジョブ定義：バージョン
+# ジョブ定義：バージョン(バージョンがない場合、省略可)
 # ・関連するプログラム
 #   - job_common.sh
 JOB_DEFINITION_VERSION=""
