@@ -143,7 +143,7 @@
 - ４．AWS Batch を設定  
   
 - ５．AWS CLI でJOB投入  
-	- job.sh  
+	- job.sh {投入回数} 
 		+ job_common.sh  
   
 ## AWS Batch を設定する

@@ -9,7 +9,11 @@ function dt() {
 
 # ジョブ投入
 # 投入回数
-MAX=10
+MAX=1
+if [[ "${1}" =~ ^[0-9]+$ ]]; then
+	MAX=${1}
+fi
+
 for i in `seq 1 ${MAX} `;
 do
 	# 環境変数の引数1
